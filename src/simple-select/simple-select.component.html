@@ -1,0 +1,21 @@
+<!-- Created by igordemo on 11/9/17. -->
+<select
+  [multiple]="settings.multiple"
+  [disabled]="disabled"
+  (change)="onChange($event)"
+  >
+  <option
+    *ngIf="settings.showDefaultOption"
+    [value]="settings.defaultOptionValue"
+    [selected]="!selected.length"
+  >
+  {{ texts.defaultOption }}
+  </option>
+  <option
+    *ngFor="let option of options"
+    [value]="option.value"
+    [selected]="selected.indexOf(option.value) !== -1"
+  >
+  {{ option.name }}
+  </option>
+</select>
